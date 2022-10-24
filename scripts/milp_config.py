@@ -2,9 +2,6 @@
 Config file for the MILP solver.
 '''
 
-from pickle import FALSE
-
-
 MINUTE_IN_SECONDS = 60
 HOUR_IN_SECONDS = 3600
 
