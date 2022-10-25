@@ -1,7 +1,7 @@
 
 import json
 
-from scripts.classes.order import Order
+from classes.order import Order
 
 class Instance():
     def __init__(self, orders):

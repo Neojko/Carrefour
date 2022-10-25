@@ -4,8 +4,8 @@ from datetime import date
 import unittest
 import os
 
-from scripts.classes.order import Order
-from scripts.classes.instance import Instance
+from classes.order import Order
+from classes.instance import Instance
 
 class TestInstance(unittest.TestCase):
 

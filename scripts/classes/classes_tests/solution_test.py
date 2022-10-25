@@ -4,8 +4,8 @@ from datetime import date
 import unittest
 import os
 
-from scripts.classes.delivery import Delivery
-from scripts.classes.solution import Solution
+from classes.delivery import Delivery
+from classes.solution import Solution
 
 class TestInstance(unittest.TestCase):
 

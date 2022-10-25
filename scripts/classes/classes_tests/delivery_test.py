@@ -4,7 +4,7 @@ from datetime import date
 import unittest
 import os
 
-from scripts.classes.delivery import Delivery
+from classes.delivery import Delivery
 
 class TestDelivery(unittest.TestCase):
 

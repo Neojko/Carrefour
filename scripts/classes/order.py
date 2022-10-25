@@ -1,6 +1,4 @@
 
-from datetime import date
-
 import json
 
 class Order():
@@ -22,6 +20,9 @@ class Order():
 
     def get_dict_delivery_date_to_cost(self):
         return self.__dict_delivery_date_to_cost
+
+    def get_last_delivery_date(self):
+        return self.__dict_delivery_date_to_cost.values().min()
 
     # JSON related functions
 

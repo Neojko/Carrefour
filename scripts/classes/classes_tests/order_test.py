@@ -4,7 +4,7 @@ from datetime import date
 import unittest
 import os
 
-from scripts.classes.order import Order
+from classes.order import Order
 
 class TestOrder(unittest.TestCase):
 
