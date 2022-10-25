@@ -54,7 +54,6 @@ class Solver:
 
 
     def build_problem_sets(self):
-        """Build sets to index the model variables."""
         # Set of order IDs
         self.__model.O = pyomo.Set(initialize=self.__order_and_deliveries_df['ORDER_ID'].unique())
 
