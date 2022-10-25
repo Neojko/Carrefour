@@ -10,8 +10,16 @@ from scripts.classes.instance import Instance
 class TestInstance(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.first_order = Order(order_id='first', delivery_dates=[date(2022, 10, 24), date(2023, 11, 25)])
-        self.second_order = Order(order_id='second', delivery_dates=[date(2021, 10, 24), date(2021, 11, 25)])
+        first_order_dict_delivery_date_to_cost = {
+            date(2022, 10, 24).isoformat(): '13', 
+            date(2023, 11, 25).isoformat(): '12'
+        }
+        second_order_dict_delivery_date_to_cost = {
+            date(2022, 10, 26).isoformat(): '15', 
+            date(2023, 11, 27).isoformat(): '16'
+        }
+        self.first_order = Order(order_id='first', dict_delivery_date_to_cost=first_order_dict_delivery_date_to_cost)
+        self.second_order = Order(order_id='second', dict_delivery_date_to_cost=second_order_dict_delivery_date_to_cost)
         self.orders = [self.first_order, self.second_order]
         self.instance = Instance(orders=self.orders)
 

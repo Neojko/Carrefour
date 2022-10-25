@@ -10,14 +10,17 @@ class TestOrder(unittest.TestCase):
 
     def setUp(self) -> None:
         self.order_id = 'order_id'
-        self.delivery_dates = [date(2022, 10, 24), date(2023, 11, 25)]
-        self.order = Order(order_id=self.order_id, delivery_dates=self.delivery_dates)
+        self.dict_delivery_date_to_cost = {
+            date(2022, 10, 24).isoformat(): '13', 
+            date(2023, 11, 25).isoformat(): '12'
+        }
+        self.order = Order(order_id=self.order_id, dict_delivery_date_to_cost=self.dict_delivery_date_to_cost)
 
     def test_get_order_id(self):
         self.assertEqual(self.order_id, self.order.get_order_id())
 
-    def test_get_delivery_dates(self):
-        self.assertEqual(self.delivery_dates, self.order.get_delivery_dates())
+    def test_get_dict_delivery_date_to_cost(self):
+        self.assertEqual(self.dict_delivery_date_to_cost, self.order.get_dict_delivery_date_to_cost())
 
     def test_json_conversion_eq(self):
         json_string: str = self.order.to_json_string()
