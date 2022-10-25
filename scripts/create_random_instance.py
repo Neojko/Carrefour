@@ -16,7 +16,7 @@ class RandomInstanceCreator():
         next_order_date: date = date.fromisoformat(config.STARTING_DAY)
         orders: list[Order] = []
         while len(orders) != config.NUMBER_OF_ORDERS:
-            order_id = 'order_' + str(len(orders) + 1)
+            order_id = len(orders) + 1
             order = self.__create_order(order_id, next_order_date)
             orders.append(order)
             next_order_date = self.__compute_next_order_date(order)
