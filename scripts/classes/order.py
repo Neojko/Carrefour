@@ -28,10 +28,9 @@ class Order():
     # JSON related functions
 
     def __getstate__(self) -> str:
-        string_dict = { delivery_date.isoformat() : cost for delivery_date, cost in self.__dict_delivery_date_to_cost.items() }
         return {
             "order_id": self.__order_id,
-            "delivery_dates": json.dumps(string_dict, sort_keys=False, indent=8)
+            "delivery_dates": {delivery_date.isoformat() : cost for delivery_date, cost in self.__dict_delivery_date_to_cost.items()}
         }
     
     def __setstate__(self, object_dict):
@@ -50,7 +49,7 @@ class Order():
 
     def export_to_json_file(self, output_file):
         with open(output_file, 'w') as outfile:
-            outfile.write(json.dumps(self.to_json_string(), sort_keys=False, indent=4))
+            json.dump(self.to_json_string(), outfile, sort_keys=False, indent=4)
 
     @classmethod
     def read_from_json_file(cls, input_json_file):

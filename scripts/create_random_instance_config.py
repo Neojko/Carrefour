@@ -2,6 +2,8 @@
 Config file to create random instances
 '''
 
+OUTPUT_FILE_NAME = 'data/instance_10_7_100.json'
+
 RANDOM_SEED = 1
 STARTING_DAY = '2022-10-25' # date isoformat
 
