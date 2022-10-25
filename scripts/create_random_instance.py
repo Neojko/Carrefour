@@ -31,7 +31,7 @@ class RandomInstanceCreator():
     def __get_order_delivery_dates(self, current_day):
         day_gaps = random.sample(self.__delivery_gap_range, config.NUMBER_OF_DELIVERY_DATES_PER_ORDER)
         day_gaps.sort()
-        return [(current_day + timedelta(days=day)).isoformat() for day in day_gaps]
+        return [(current_day + timedelta(days=day)) for day in day_gaps]
 
     def __compute_random_cost(self):
         return random.randint(config.MIN_COST, config.MAX_COST)
