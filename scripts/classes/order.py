@@ -4,13 +4,15 @@ from datetime import date
 import json
 
 class Order():
-    def __init__(self, order_id, delivery_dates):
+    def __init__(self, order_id, dict_delivery_date_to_cost):
+        """Date format is date.isoformat()"""
         self.__order_id = order_id
-        self.__delivery_dates = delivery_dates
+        self.__dict_delivery_date_to_cost = dict_delivery_date_to_cost
 
     def __eq__(self, other: object) -> bool:
         if isinstance(other, Order):
-            return self.__order_id == other.__order_id and self.__delivery_dates == other.__delivery_dates
+            return self.__order_id == other.__order_id and \
+                self.__dict_delivery_date_to_cost == other.__dict_delivery_date_to_cost
         return False
 
     # Getters
@@ -18,20 +20,20 @@ class Order():
     def get_order_id(self):
         return self.__order_id
 
-    def get_delivery_dates(self):
-        return self.__delivery_dates
+    def get_dict_delivery_date_to_cost(self):
+        return self.__dict_delivery_date_to_cost
 
     # JSON related functions
 
     def __getstate__(self) -> str:
         return {
             "order_id": self.__order_id,
-            "delivery_dates": [delivery_date.isoformat() for delivery_date in self.__delivery_dates]
+            "delivery_dates": json.dumps(self.__dict_delivery_date_to_cost, sort_keys=False, indent=8)
         }
     
     def __setstate__(self, object_dict):
         self.__order_id = object_dict['order_id']
-        self.__delivery_dates = [date.fromisoformat(x) for x in object_dict['delivery_dates']]
+        self.__dict_delivery_date_to_cost = json.loads(object_dict['delivery_dates'])
     
     def to_json_string(self):
         return self.__getstate__()
