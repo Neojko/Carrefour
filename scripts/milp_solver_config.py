@@ -11,6 +11,6 @@ OUTPUT_SOLUTION_PATH = 'results/solution_10_7_100.json'
 MILP_SOLVER_LOG_FILE = 'log/solution_10_7_100.log'
 
 # Solver parameters
-PRINT_SOLVER_OUTPUT = False
+PRINT_SOLVER_OUTPUT = True
 TIME_LIMIT = 1 * MINUTE_IN_SECONDS
 GAP = 0.01

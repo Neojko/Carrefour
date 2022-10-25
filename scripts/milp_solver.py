@@ -17,6 +17,15 @@ class Solver:
         self.__instance = instance
         self.__earliest_date = instance.get_earliest_delivery_date()
         self.__order_and_deliveries_df = self.create_dataframe_of_possible_delivery_dates_per_order()
+        self.__dict_int_to_week_day = {
+            0: 'Monday',
+            1: 'Tuesday',
+            2: 'Wednesday',
+            3: 'Thursday',
+            4: 'Friday',
+            5: 'Saturday',
+            6: 'Sunday'
+        }
         self.build_problem_sets()
         self.create_problem_variables()
         self.create_problem_constraints()
@@ -77,19 +86,19 @@ class Solver:
     def create_constraint_c1(self):
         """Create constraint to ensure that all orders are delivered once"""
         for order_id in self.__model.O:
-            self.__model.constraints.add(self.get_Y_tuples_for_order_id(order_id)== 1)
+            self.__model.constraints.add(self.get_sum_of_Y_tuples_for_order_id(order_id)== 1)
     
 
-    def get_Y_tuples_for_order_id(self, given_order_id: str):
+    def get_sum_of_Y_tuples_for_order_id(self, given_order_id: str):
         """Returns all (order_id, delivery_date_int) tuples in self.__model.Y such that order_id == given_order_id"""
         return sum([self.__model.y[o, d] for o, d in self.__model.Y if o == given_order_id])
 
 
     def create_problem_objective(self):
-        self.__model.objective = pyomo.Objective(expr=self.__model.z_plus+self.get_Y_tuples(),sense=pyomo.minimize)
+        self.__model.objective = pyomo.Objective(expr=self.__model.z_plus+self.get_sum_of_Y_tuples(),sense=pyomo.minimize)
 
     
-    def get_Y_tuples(self):
+    def get_sum_of_Y_tuples(self):
         """Returns all (order_id, delivery_date_int) tuples in self.__model.Y"""
         return sum([self.__model.y[o, d] for o, d in self.__model.Y])
 
@@ -107,6 +116,21 @@ class Solver:
         )
         return results
 
+    
+    def build_solution(self) -> Solution:
+        deliveries = []
+        for (order_id, delivery_date_int) in self.__model.Y:
+            if self.__model.y[(order_id, delivery_date_int)].value >= 1:
+                x = type(delivery_date_int)
+                delivery_date = self.__earliest_date + timedelta(days=int(delivery_date_int))
+                deliveries.append(Delivery(order_id, delivery_date))
+        return Solution(deliveries)
+
+    def print_kpis(self):
+        for week_day in self.__model.W:
+            print("Number of deliveries on " + self.__dict_int_to_week_day[week_day] + ": " + str(self.__model.z[week_day].value))
+        print("Max gap in deliveries between two week days: " + str(self.__model.z_plus.value))
+
 
 if __name__ == '__main__':
     # Read data
@@ -117,7 +141,10 @@ if __name__ == '__main__':
     results = solver.solve()
 
     # Get Solution
+    solution = solver.build_solution()
+
     # Print KPIs
-    # Run the result though the Validator
+    solver.print_kpis()
+
     # Save Solution
-    a = 3
+    solution.export_to_json_file(config.OUTPUT_SOLUTION_PATH)
