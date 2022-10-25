@@ -7,8 +7,6 @@ import create_random_instance_config as config
 from datetime import date, timedelta
 import random
 
-import json # TODO to remove
-
 class RandomInstanceCreator():
     def __init__(self):
         random.seed(config.RANDOM_SEED)
