@@ -4,19 +4,19 @@ from datetime import date
 import unittest
 import os
 
-from scripts.classes.order import Order
-from scripts.classes.instance import Instance
+from classes.order import Order
+from classes.instance import Instance
 
 class TestInstance(unittest.TestCase):
 
     def setUp(self) -> None:
         first_order_dict_delivery_date_to_cost = {
-            date(2022, 10, 24).isoformat(): '13', 
-            date(2023, 11, 25).isoformat(): '12'
+            date(2022, 10, 24): 13, 
+            date(2023, 11, 25): 12
         }
         second_order_dict_delivery_date_to_cost = {
-            date(2022, 10, 26).isoformat(): '15', 
-            date(2023, 11, 27).isoformat(): '16'
+            date(2022, 10, 26): 15, 
+            date(2023, 11, 27): 16
         }
         self.first_order = Order(order_id='first', dict_delivery_date_to_cost=first_order_dict_delivery_date_to_cost)
         self.second_order = Order(order_id='second', dict_delivery_date_to_cost=second_order_dict_delivery_date_to_cost)

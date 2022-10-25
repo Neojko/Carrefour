@@ -1,7 +1,7 @@
 
 import json
 
-from scripts.classes.delivery import Delivery
+from classes.delivery import Delivery
 
 class Solution():
     def __init__(self, deliveries):

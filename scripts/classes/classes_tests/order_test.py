@@ -4,15 +4,15 @@ from datetime import date
 import unittest
 import os
 
-from scripts.classes.order import Order
+from classes.order import Order
 
 class TestOrder(unittest.TestCase):
 
     def setUp(self) -> None:
         self.order_id = 'order_id'
         self.dict_delivery_date_to_cost = {
-            date(2022, 10, 24).isoformat(): '13', 
-            date(2023, 11, 25).isoformat(): '12'
+            date(2022, 10, 24): 13, 
+            date(2023, 11, 25): 12
         }
         self.order = Order(order_id=self.order_id, dict_delivery_date_to_cost=self.dict_delivery_date_to_cost)
 
@@ -21,6 +21,9 @@ class TestOrder(unittest.TestCase):
 
     def test_get_dict_delivery_date_to_cost(self):
         self.assertEqual(self.dict_delivery_date_to_cost, self.order.get_dict_delivery_date_to_cost())
+
+    def test_get_latest_delivery_date(self):
+        self.assertEqual(date(2023, 11, 25), self.order.get_latest_delivery_date())
 
     def test_json_conversion_eq(self):
         json_string: str = self.order.to_json_string()
