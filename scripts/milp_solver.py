@@ -1,11 +1,10 @@
-from classes.order import Order
+
 from classes.instance import Instance
 from classes.delivery import Delivery
 from classes.solution import Solution
 
 import milp_solver_config as config
 
-import pandas as pd
 import pyomo.environ as pyomo
 from datetime import date, datetime, timedelta
 
@@ -141,7 +140,8 @@ class Solver:
 
     def print_kpis(self):
         for week_day in self.__model.W:
-            print("Number of deliveries on " + self.__dict_int_to_week_day[week_day] + ": " + str(self.__model.z[week_day].value))
+            day = self.__dict_int_to_week_day[week_day]
+            print("Number of deliveries on " + day + ": " + str(self.__model.z[week_day].value))
         print("Max gap in deliveries between two week days: " + str(self.__model.z_plus.value))
 
 
