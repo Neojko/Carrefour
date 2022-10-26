@@ -132,16 +132,19 @@ class Solver:
         deliveries = []
         for (order_id, delivery_date_int) in self.__model.Y:
             if self.__model.y[(order_id, delivery_date_int)].value >= 1:
-                x = type(delivery_date_int)
                 delivery_date = self.__earliest_date + timedelta(days=int(delivery_date_int))
                 deliveries.append(Delivery(int(order_id), delivery_date))
         return Solution(deliveries)
 
 
     def print_kpis(self):
+        total_number_of_deliveries = 0
         for week_day in self.__model.W:
             day = self.__dict_int_to_week_day[week_day]
-            print("Number of deliveries on " + day + ": " + str(self.__model.z[week_day].value))
+            number_of_deliveries = self.__model.z[week_day].value
+            print("Number of deliveries on " + day + ": " + str(number_of_deliveries))
+            total_number_of_deliveries += number_of_deliveries
+        print("Total number of deliveries: " + str(total_number_of_deliveries))
         print("Max gap in deliveries between two week days: " + str(self.__model.z_plus.value))
 
 
