@@ -28,6 +28,9 @@ class Order():
     def get_latest_delivery_date(self):
         return max(self.__dict_delivery_date_to_cost.keys())
 
+    def get_cost_of_delivery_date(self, delivery_date: date):
+        return self.__dict_delivery_date_to_cost[delivery_date]
+
     # JSON related functions
 
     def __getstate__(self) -> str:
