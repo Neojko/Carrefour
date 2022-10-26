@@ -5,7 +5,7 @@ import json
 
 class Order():
     def __init__(self, order_id, dict_delivery_date_to_cost):
-        self.__order_id: str = order_id
+        self.__order_id: int = order_id
         self.__dict_delivery_date_to_cost: dict[date, int] = dict_delivery_date_to_cost
 
     def __eq__(self, other: object) -> bool:
@@ -16,11 +16,14 @@ class Order():
 
     # Getters
 
-    def get_order_id(self) -> str:
+    def get_order_id(self) -> int:
         return self.__order_id
 
     def get_dict_delivery_date_to_cost(self):
         return self.__dict_delivery_date_to_cost
+
+    def get_earliest_delivery_date(self):
+        return min(self.__dict_delivery_date_to_cost.keys())
 
     def get_latest_delivery_date(self):
         return max(self.__dict_delivery_date_to_cost.keys())
@@ -35,8 +38,7 @@ class Order():
     
     def __setstate__(self, object_dict):
         self.__order_id = object_dict['order_id']
-        string_dict = json.loads(object_dict['delivery_dates'])
-        self.__dict_delivery_date_to_cost = {date.fromisoformat(key) : value for key, value in string_dict.items() }
+        self.__dict_delivery_date_to_cost = {date.fromisoformat(key) : value for key, value in object_dict['delivery_dates'].items() }
     
     def to_json_string(self):
         return self.__getstate__()

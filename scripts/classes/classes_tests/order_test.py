@@ -9,7 +9,7 @@ from classes.order import Order
 class TestOrder(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.order_id = 'order_id'
+        self.order_id = 1
         self.dict_delivery_date_to_cost = {
             date(2022, 10, 24): 13, 
             date(2023, 11, 25): 12

@@ -18,8 +18,8 @@ class TestInstance(unittest.TestCase):
             date(2022, 10, 26): 15, 
             date(2023, 11, 27): 16
         }
-        self.first_order = Order(order_id='first', dict_delivery_date_to_cost=first_order_dict_delivery_date_to_cost)
-        self.second_order = Order(order_id='second', dict_delivery_date_to_cost=second_order_dict_delivery_date_to_cost)
+        self.first_order = Order(order_id=1, dict_delivery_date_to_cost=first_order_dict_delivery_date_to_cost)
+        self.second_order = Order(order_id=2, dict_delivery_date_to_cost=second_order_dict_delivery_date_to_cost)
         self.orders = [self.first_order, self.second_order]
         self.instance = Instance(orders=self.orders)
 

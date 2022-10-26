@@ -17,6 +17,10 @@ class Instance():
     def get_orders(self):
         return self.__orders
 
+    def get_earliest_delivery_date(self):
+        return min([x.get_earliest_delivery_date() for x in self.__orders])
+
+
     # JSON related functions
 
     def __getstate__(self) -> str:
