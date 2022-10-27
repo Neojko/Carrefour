@@ -2,12 +2,12 @@
 Config file to create random instances
 '''
 
-OUTPUT_FILE_NAME = 'data/instance_100000_7_100.json'
+OUTPUT_FILE_NAME = 'data/instance_120000_7_100.json'
 
 RANDOM_SEED = 1
 STARTING_DAY = '2022-10-25' # date isoformat
 
-NUMBER_OF_ORDERS = 100000
+NUMBER_OF_ORDERS = 120000
 
 NUMBER_OF_DELIVERY_DATES_PER_ORDER = 3
 RANGE_OF_DELIVERY_DATES = 7

@@ -54,7 +54,7 @@ class Solver:
         # Set of week days
         self.__model.W = pyomo.Set(initialize=range(7))
 
-        # Index of the y variables: set of (order_id, delivery_date_id) assignments
+        # Set of (order_id, delivery_date_id) assignments
         self.__model.Y = pyomo.Set(initialize=self.__dict_order_id_and_delivery_date_int_to_cost.keys())
 
 
@@ -62,7 +62,7 @@ class Solver:
         # y[order, date] == 1 if order is delivered at date
         self.__model.y = pyomo.Var(self.__model.Y, domain=pyomo.Binary, initialize=0)
 
-        # z[week_day] == X if X orders are delivered on week day week_day
+        # z[week_day] == X if X orders are delivered on week_day
         self.__model.z = pyomo.Var(self.__model.W, domain=pyomo.NonNegativeIntegers, initialize=0)
 
         # z_plus == X if biggest difference between any two z[week_day] variables == X

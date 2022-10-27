@@ -1,0 +1,107 @@
+Solver command line: ['/usr/local/bin/cbc', '-sec', '18000', '-timeMode', 'elapsed', '-ratioGap', '0.05', '-printingOptions', 'all', '-import', '/var/folders/v_/24wplqn96qn6_5qvt5jtq22m0000gn/T/tmptybgru0v.pyomo.lp', '-stat=1', '-solve', '-solu', '/var/folders/v_/24wplqn96qn6_5qvt5jtq22m0000gn/T/tmptybgru0v.pyomo.soln']
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.5 
+Build Date: Nov 17 2020 
+
+command line - /usr/local/bin/cbc -sec 18000 -timeMode elapsed -ratioGap 0.05 -printingOptions all -import /var/folders/v_/24wplqn96qn6_5qvt5jtq22m0000gn/T/tmptybgru0v.pyomo.lp -stat=1 -solve -solu /var/folders/v_/24wplqn96qn6_5qvt5jtq22m0000gn/T/tmptybgru0v.pyomo.soln (default strategy 1)
+seconds was changed from 1e+100 to 18000
+Option for timeMode changed from cpu to elapsed
+ratioGap was changed from 0 to 0.05
+Option for printingOptions changed from normal to all
+Presolve 120049 (-1) rows, 360008 (-1) columns and 720133 (-1) elements
+Statistics for presolved model
+Original problem has 360008 integers (360000 of which binary)
+Presolved problem has 360008 integers (360000 of which binary)
+==== 7 zero objective 102 different
+==== absolute objective values 102 different
+==== for integers 7 zero objective 102 different
+==== for integers absolute objective values 102 different
+===== end objective counts
+
+
+Problem has 120049 rows, 360008 columns (360001 with objective) and 720133 elements
+Column breakdown:
+8 of type 0.0->inf, 0 of type 0.0->up, 0 of type lo->inf, 
+0 of type lo->up, 0 of type free, 0 of type fixed, 
+0 of type -inf->0.0, 0 of type -inf->up, 360000 of type 0.0->1.0 
+Row breakdown:
+7 of type E 0.0, 120000 of type E 1.0, 0 of type E -1.0, 
+0 of type E other, 0 of type G 0.0, 0 of type G 1.0, 
+0 of type G other, 42 of type L 0.0, 0 of type L 1.0, 
+0 of type L other, 0 of type Range 0.0->1.0, 0 of type Range other, 
+0 of type Free 
+Continuous objective value is 3.06344e+06 - 678.41 seconds
+Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 120049 rows, 360008 columns (360008 integer (360000 of which binary)) and 720133 elements
+Cutoff increment increased from 1e-05 to 0.9999
+Cbc0038I Initial state - 19 integers unsatisfied sum - 4.42857
+Cbc0038I Pass   1: (1236.57 seconds) suminf.    0.00000 (0) obj. 3.06444e+06 iterations 19101
+Cbc0038I Solution found of 3.06444e+06
+Cbc0038I Cleaned solution of 3.06444e+06
+Cbc0038I Before mini branch and bound, 359988 integers at bound fixed and 0 continuous
+Cbc0038I Full problem 120049 rows 360008 columns, reduced to 47 rows 12 columns
+Cbc0038I Mini branch and bound did not improve solution (1238.33 seconds)
+Cbc0038I Round again with cutoff of 3.06434e+06
+Cbc0038I Pass   2: (1355.79 seconds) suminf.    0.44735 (20) obj. 3.06434e+06 iterations 16603
+Cbc0038I Pass   3: (1400.62 seconds) suminf.    5.35339 (20) obj. 3.06434e+06 iterations 16692
+Cbc0038I Pass   4: (1485.90 seconds) suminf.    0.46046 (20) obj. 3.06434e+06 iterations 21105
+Cbc0038I Pass   5: (1546.74 seconds) suminf.    5.73013 (20) obj. 3.06434e+06 iterations 16367
+Cbc0038I Pass   6: (1620.00 seconds) suminf.    0.46476 (20) obj. 3.06434e+06 iterations 21554
+Cbc0038I Pass   7: (1664.95 seconds) suminf.    5.35098 (20) obj. 3.06434e+06 iterations 14080
+Cbc0038I Pass   8: (1764.08 seconds) suminf.    0.48220 (20) obj. 3.06434e+06 iterations 27922
+Cbc0038I Pass   9: (1783.53 seconds) suminf.    3.84500 (21) obj. 3.06434e+06 iterations 5861
+Cbc0038I Pass  10: (1803.71 seconds) suminf.    2.71429 (21) obj. 3.06434e+06 iterations 6120
+Cbc0038I Pass  11: (1853.21 seconds) suminf.    2.82394 (20) obj. 3.06434e+06 iterations 11029
+Cbc0038I Pass  12: (1891.77 seconds) suminf.    2.68554 (20) obj. 3.06434e+06 iterations 13345
+Cbc0038I Pass  13: (1916.51 seconds) suminf.    2.82353 (20) obj. 3.06434e+06 iterations 8356
+Cbc0038I Pass  14: (1942.51 seconds) suminf.    3.85714 (21) obj. 3.06434e+06 iterations 9153
+Cbc0038I Pass  15: (1963.90 seconds) suminf.    2.70819 (20) obj. 3.06434e+06 iterations 6986
+Cbc0038I Pass  16: (1987.75 seconds) suminf.    2.73974 (20) obj. 3.06434e+06 iterations 8392
+Cbc0038I Pass  17: (2018.81 seconds) suminf.    2.70758 (20) obj. 3.06434e+06 iterations 10278
+Cbc0038I Pass  18: (2039.12 seconds) suminf.    4.42857 (21) obj. 3.06434e+06 iterations 6787
+Cbc0038I Pass  19: (2063.96 seconds) suminf.    2.70542 (20) obj. 3.06434e+06 iterations 7774
+Cbc0038I Pass  20: (2104.07 seconds) suminf.    2.73393 (20) obj. 3.06434e+06 iterations 13668
+Cbc0038I Pass  21: (2140.81 seconds) suminf.    2.70911 (20) obj. 3.06434e+06 iterations 12406
+Cbc0038I Pass  22: (2163.98 seconds) suminf.    4.34986 (21) obj. 3.06434e+06 iterations 7206
+Cbc0038I Pass  23: (2186.32 seconds) suminf.    2.71429 (21) obj. 3.06434e+06 iterations 6604
+Cbc0038I Pass  24: (2258.60 seconds) suminf.    4.00564 (21) obj. 3.06434e+06 iterations 14792
+Cbc0038I Pass  25: (2316.15 seconds) suminf.    2.71350 (20) obj. 3.06434e+06 iterations 16131
+Cbc0038I Pass  26: (2377.82 seconds) suminf.    2.79630 (20) obj. 3.06434e+06 iterations 14508
+Cbc0038I Pass  27: (2414.98 seconds) suminf.    2.69267 (20) obj. 3.06434e+06 iterations 13303
+Cbc0038I Pass  28: (2438.72 seconds) suminf.    4.71429 (21) obj. 3.06434e+06 iterations 7755
+Cbc0038I Pass  29: (2458.76 seconds) suminf.    2.71429 (21) obj. 3.06434e+06 iterations 6533
+Cbc0038I Pass  30: (2481.87 seconds) suminf.    2.78401 (20) obj. 3.06434e+06 iterations 7777
+Cbc0038I Pass  31: (2508.74 seconds) suminf.    2.69646 (20) obj. 3.06434e+06 iterations 9311
+Cbc0038I No solution found this major pass
+Cbc0038I Before mini branch and bound, 359595 integers at bound fixed and 0 continuous
+Cbc0038I Full problem 120049 rows 360008 columns, reduced to 52 rows 191 columns
+Cbc0038I Mini branch and bound did not improve solution (2509.75 seconds)
+Cbc0038I After 2509.77 seconds - Feasibility pump exiting with objective of 3.06444e+06 - took 1337.70 seconds
+Cbc0012I Integer solution of 3064443 found by feasibility pump after 0 iterations and 0 nodes (2509.87 seconds)
+Cbc0011I Exiting as integer gap of 1000 less than 1e-10 or 5%
+Cbc0001I Search completed - best objective 3064443, took 0 iterations and 0 nodes (2510.50 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 3.06344e+06 to 3.06344e+06
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found (within gap tolerance)
+
+Objective value:                3064443.00000000
+Lower bound:                    3063443.000
+Gap:                            0.00
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             2502.16
+Time (Wallclock seconds):       2511.54
+
+Total time (CPU seconds):       2665.90   (Wallclock seconds):       2675.71
+
+
